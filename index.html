@@ -4,18 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>$KAMECOIN – It's Over 9000!</title>
-  <style>
-    /* Reset básico */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
+  <!-- Fonte estilo Ponke -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
     body {
       background-color: #0a0a0a;
       color: #facc15;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Fredoka', sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -27,9 +24,7 @@
       opacity: 0;
     }
 
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
+    @keyframes fadeIn { to { opacity: 1; } }
 
     img.logo {
       max-width: 120px;
@@ -53,29 +48,32 @@
       animation-delay: 0.5s;
     }
 
-    p.subtitle {
+    p.subtitle, p.meme-line {
       font-size: 1.1rem;
       color: #ddd;
       margin-bottom: 1rem;
-      max-width: 320px;
+      max-width: 350px;
       line-height: 1.4;
       opacity: 0;
       animation: fadeInUp 1s ease forwards;
       animation-delay: 0.7s;
     }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    p.meme-line {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: #f87171;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1rem;
+      border-radius: 10px;
+      margin-top: 1.5rem;
     }
 
-    /* Container dos botões sociais */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .social-buttons {
       display: flex;
       gap: 1rem;
@@ -86,7 +84,6 @@
       animation-delay: 0.9s;
     }
 
-    /* Botões sociais */
     .social-btn {
       display: inline-flex;
       align-items: center;
@@ -107,7 +104,6 @@
       box-shadow: 0 0 12px #facc15;
     }
 
-    /* Botões principais */
     a.btn, button.btn {
       background-color: transparent;
       border: 2px solid #facc15;
@@ -134,12 +130,8 @@
     }
 
     @keyframes pulse {
-      0%, 100% {
-        box-shadow: 0 0 15px #facc15;
-      }
-      50% {
-        box-shadow: 0 0 25px #facc15;
-      }
+      0%, 100% { box-shadow: 0 0 15px #facc15; }
+      50% { box-shadow: 0 0 25px #facc15; }
     }
 
     section {
@@ -173,30 +165,15 @@
       color: #22c55e;
       margin-top: 1rem;
       text-align: center;
-      transition: color 0.3s ease;
     }
 
-    /* Responsivo simples */
     @media (max-width: 400px) {
-      h1 {
-        font-size: 2rem;
-      }
-      p.subtitle {
-        max-width: 100%;
-      }
-      section {
-        max-width: 100%;
-      }
-      a.btn, button.btn {
-        min-width: 100%;
-      }
-      .social-buttons {
-        gap: 0.5rem;
-      }
-      .social-btn {
-        width: 40px;
-        height: 40px;
-      }
+      h1 { font-size: 2rem; }
+      p.subtitle { max-width: 100%; }
+      section { max-width: 100%; }
+      a.btn, button.btn { min-width: 100%; }
+      .social-buttons { gap: 0.5rem; }
+      .social-btn { width: 40px; height: 40px; }
     }
   </style>
 </head>
@@ -207,15 +184,14 @@
   <p class="subtitle">🔥 It’s Over 9000!<br>Join the Dojo. Become a meme legend in the crypto universe.</p>
 
   <div class="social-buttons">
-    <a href="https://t.me/kamecoinsquad" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="24" height="24" >
+    <a href="https://t.me/kamecoinsquad" class="social-btn" target="_blank" aria-label="Telegram">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
         <path d="M22.5 3.5L1.5 10.5l5.4 2.1 1.9 6.9 2.7-7.8 6.1-4.7-13.7 8.6z"/>
       </svg>
     </a>
-
-    <a href="https://twitter.com/kamecoin" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="24" height="24" >
-        <path d="M23 3a10.9 10.9 0 0 1-3.1.9 4.8 4.8 0 0 0 2.1-2.7 9.8 9.8 0 0 1-3.2 1.2 4.9 4.9 0 0 0-8.3 4.5A14 14 0 0 1 1.7 2.2a4.9 4.9 0 0 0 1.5 6.5 4.8 4.8 0 0 1-2.2-.6v.1a4.9 4.9 0 0 0 3.9 4.8 5 5 0 0 1-2.2.1 4.9 4.9 0 0 0 4.5 3.4A9.9 9.9 0 0 1 1 19.6a14 14 0 0 0 7.6 2.2c9.1 0 14-7.5 14-14v-.6A10 10 0 0 0 23 3z"/>
+    <a href="https://x.com/kamecoinbnb" class="social-btn" target="_blank" aria-label="Twitter/X">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1227" width="24" height="24" fill="currentColor">
+        <path d="M828 0h231L747 523l430 704H861L582 775 260 1227H30l342-548L0 0h252l248 424L828 0zM807 1102h64L387 140H317l490 962z"/>
       </svg>
     </a>
   </div>
@@ -228,6 +204,10 @@
     <source src="over9000.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
+
+  <p class="meme-line">
+    Kame minted <strong>59 TRILLION</strong> tokens. Why?<br>‘Cause he’s a <em>degenerate power freak</em>.<br>And guess what? He wants to keep ‘em all and still go Ultra Instinct.
+  </p>
 
   <section>
     <h2>📊 Tokenomics</h2>
