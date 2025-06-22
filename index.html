@@ -1,202 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>$KAMECOIN – It's Over 9000!</title>
-  <style>
-    body {
-      margin: 0;
-      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-      overflow: hidden;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      color: #fff;
-      text-align: center;
-      padding: 2rem;
-    }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>$KAMECOIN – It's Over 9000!</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    #bgVideo {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -2;
-    }
+    body, html {
+      height: 100%;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      overflow-x: hidden;
+    }
 
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: -1;
-    }
+    /* Video como fundo */
+    #bgVideo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -2;
+    }
 
-    h1, h2 {
-      color: #facc15;
-    }
+    /* Escurecer levemente para leitura */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
 
-    p, ul {
-      font-size: 1rem;
-      margin: 1rem auto;
-      max-width: 700px;
-    }
+    main {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      padding: 2rem;
+    }
 
-    .btn {
-      background-color: #facc15;
-      color: #0d0d0d;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
-      margin-top: 1rem;
-      cursor: pointer;
-      box-shadow: 0 0 12px #facc15, 0 0 25px #facc15;
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
-    }
+    .logo {
+      width: 180px;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
 
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px #facc15, 0 0 40px #facc15;
-    }
+    h1 {
+      color: #facc15;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
 
-    .logo-container {
-      position: relative;
-      display: inline-block;
-    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      max-width: 600px;
+    }
 
-    .aura {
-      position: absolute;
-      top: -20px;
-      left: -20px;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      box-shadow:
-        0 0 40px 10px rgba(255, 255, 0, 0.6),
-        0 0 80px 20px rgba(255, 153, 0, 0.4),
-        0 0 100px 30px rgba(255, 0, 0, 0.2);
-      animation: pulseAura 2s infinite ease-in-out;
-      z-index: 0;
-    }
+    .btn {
+      background-color: #facc15;
+      color: #000;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      margin: 0.5rem;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      box-shadow: 0 0 10px #facc15;
+    }
 
-    @keyframes pulseAura {
-      0% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.15); opacity: 1; }
-      100% { transform: scale(1); opacity: 0.8; }
-    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
 
-    img.logo {
-      max-width: 220px;
-      border-radius: 12px;
-      position: relative;
-      z-index: 1;
-    }
+    .section {
+      margin-top: 3rem;
+      max-width: 800px;
+      width: 100%;
+    }
 
-    section {
-      margin-top: 3rem;
-    }
+    .section h2 {
+      color: #facc15;
+      margin-bottom: 1rem;
+    }
 
-    .socials {
-      margin-top: 2rem;
-    }
+    .section ul {
+      list-style: none;
+      padding: 0;
+      font-size: 1rem;
+    }
 
-    .socials a {
-      display: inline-block;
-      margin: 0 10px;
-    }
+    .section ul li {
+      margin-bottom: 0.5rem;
+    }
 
-    .social-icon {
-      width: 40px;
-      height: 40px;
-      filter: drop-shadow(0 0 5px #facc15);
-    }
+    .power {
+      font-size: 2rem;
+      color: #22c55e;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
 
-    @media (max-width: 600px) {
-      .btn {
-        padding: 0.8rem 1.2rem;
-        font-size: 0.9rem;
-      }
+    .socials {
+      margin-top: 2rem;
+    }
 
-      .social-icon {
-        width: 30px;
-        height: 30px;
-      }
-    }
-  </style>
+    .socials a {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      filter: drop-shadow(0 0 5px #facc15);
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .logo {
+        width: 140px;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .btn {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+      }
+
+      .social-icon {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Fundo com vídeo -->
+  <video autoplay muted loop playsinline id="bgVideo">
+    <source src="goku-video.mp4" type="video/mp4" />
+  </video>
+  <div class="overlay"></div>
 
-  <!-- Vídeo de fundo -->
-  <video autoplay muted loop playsinline id="bgVideo">
-    <source src="Goku-video.mp4" type="video/mp4">
-  </video>
+  <main>
+    <img src="kamecoin-logo.png" alt="$KAMECOIN Logo" class="logo" />
+    <h1>$KAMECOIN</h1>
+    <p>🔥 It’s Over 9000!<br />Join the Dojo. Become a meme legend in the crypto universe.</p>
+    <div>
+      <a href="https://t.me/kamecoinsquad" class="btn" target="_blank">Join Telegram</a>
+      <button onclick="playSound()" class="btn">💥 Unleash Power!</button>
+    </div>
 
-  <div class="logo-container">
-    <div class="aura"></div>
-    <img src="kamecoin-logo.png" alt="$KAMECOIN Logo" class="logo">
-  </div>
+    <audio id="dbzSound">
+      <source src="over9000.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
 
-  <h1>$KAMECOIN</h1>
-  <p>🔥 It’s Over 9000!<br>Join the Dojo. Become a meme legend in the crypto universe.</p>
-  <a href="https://t.me/kamecoinsquad" class="btn" target="_blank">Join Telegram</a>
-  <button onclick="playSound()" class="btn">💥 Unleash Power!</button>
+    <div class="section">
+      <h2>📊 Tokenomics</h2>
+      <p>KAME made 59 trillion tokens... but he's a greedy Super Saiyan and wants them ALL! 😈</p>
+      <ul>
+        <li>Total Supply: 59,000,000,000,000 $KAME</li>
+        <li>100% Community Owned</li>
+        <li>LP Burned, Contract Renounced</li>
+      </ul>
+    </div>
 
-  <audio id="dbzSound">
-    <source src="over9000.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+    <div class="section">
+      <h2>🗺️ Roadmap</h2>
+      <ul>
+        <li>✅ Launch $KAMECOIN</li>
+        <li>✅ Build Community on Telegram + Twitter</li>
+        <li>🔜 Listing on DEXTools & CoinGecko</li>
+        <li>🔜 Meme Contest & NFT Drop</li>
+        <li>🔜 Goku Dojo Staking Game</li>
+      </ul>
+    </div>
 
-  <section>
-    <h2>📊 Tokenomics</h2>
-    <p>KAME forjou 59 trilhões de tokens... mas ele é um Super Saiyan ganancioso e quer tudo pra ele mesmo. 😂</p>
-    <ul>
-      <li>Total Supply: 59,000,000,000,000 $KAME</li>
-      <li>100% Community Owned</li>
-      <li>LP Burned, Contract Renounced</li>
-    </ul>
-  </section>
+    <div class="section">
+      <h2>💥 Power Level</h2>
+      <div id="powerCounter" class="power">9000</div>
+    </div>
 
-  <section>
-    <h2>🗺️ Roadmap</h2>
-    <ul>
-      <li>✅ Launch $KAMECOIN</li>
-      <li>✅ Build Community on Telegram + Twitter</li>
-      <li>🔜 Listing on DEXTools & CoinGecko</li>
-      <li>🔜 Meme Contest & NFT Drop</li>
-      <li>🔜 Goku Dojo Staking Game</li>
-    </ul>
-  </section>
+    <div class="socials">
+      <a href="https://t.me/kamecoinsquad" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" class="social-icon" />
+      </a>
+      <a href="https://x.com/kamecoinbnb" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X" class="social-icon" />
+      </a>
+    </div>
+  </main>
 
-  <section>
-    <h2>💥 Power Level</h2>
-    <div id="powerCounter" style="font-size: 2rem; font-weight: bold; color: #22c55e; margin-top: 1rem;">9000</div>
-  </section>
+  <script>
+    let power = 9000;
+    const counter = document.getElementById("powerCounter");
+    setInterval(() => {
+      power += Math.floor(Math.random() * 500);
+      counter.textContent = power.toLocaleString();
+    }, 1500);
 
-  <div class="socials">
-    <a href="https://t.me/kamecoinsquad" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" class="social-icon">
-    </a>
-    <a href="https://x.com/kamecoinbnb" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter/X" class="social-icon">
-    </a>
-  </div>
-
-  <script>
-    let power = 9000;
-    const counter = document.getElementById('powerCounter');
-    setInterval(() => {
-      power += Math.floor(Math.random() * 500);
-      counter.textContent = power.toLocaleString();
-    }, 1500);
-
-    function playSound() {
-      const sound = document.getElementById("dbzSound");
-      sound.play();
-    }
-  </script>
+    function playSound() {
+      const sound = document.getElementById("dbzSound");
+      sound.play();
+    }
+  </script>
 </body>
 </html>
