@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +29,8 @@
       text-decoration: none;
       font-weight: bold;
       display: inline-block;
-      margin-top: 2rem;
+      margin-top: 1rem;
+      cursor: pointer;
     }
     img.logo {
       max-width: 220px;
@@ -45,6 +47,12 @@
   <h1>$KAMECOIN</h1>
   <p>🔥 It’s Over 9000!<br>Join the Dojo. Become a meme legend in the crypto universe.</p>
   <a href="https://t.me/kamecoinsquad" class="btn">Join Telegram</a>
+  <button onclick="playSound()" class="btn">💥 Liberar Poder!</button>
+
+  <audio id="dbzSound">
+    <source src="over9000.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
 
   <section>
     <h2>📊 Tokenomics</h2>
@@ -69,15 +77,20 @@
   <section>
     <h2>💥 Power Level</h2>
     <div id="powerCounter" style="font-size: 2rem; font-weight: bold; color: #22c55e; margin-top: 1rem;">9000</div>
-    <script>
-      let power = 9000;
-      const counter = document.getElementById('powerCounter');
-      setInterval(() => {
-        power += Math.floor(Math.random() * 500);
-        counter.textContent = power.toLocaleString();
-      }, 1500);
-    </script>
   </section>
+
+  <script>
+    let power = 9000;
+    const counter = document.getElementById('powerCounter');
+    setInterval(() => {
+      power += Math.floor(Math.random() * 500);
+      counter.textContent = power.toLocaleString();
+    }, 1500);
+
+    function playSound() {
+      const sound = document.getElementById("dbzSound");
+      sound.play();
+    }
+  </script>
 </body>
 </html>
-
