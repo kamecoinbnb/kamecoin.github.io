@@ -2,215 +2,124 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>$KAMECOIN – It's Over 9000!</title>
-
-  <!-- Fonte estilo Ponke -->
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap" rel="stylesheet">
-
   <style>
+    /* Fundo com vídeo */
+    #bgVideo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
     body {
-      background-color: #0a0a0a;
-      color: #facc15;
-      font-family: 'Fredoka', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      padding: 2rem 1rem;
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #fff;
       text-align: center;
-      animation: fadeIn 1.5s ease forwards;
-      opacity: 0;
+      padding: 2rem;
     }
 
-    @keyframes fadeIn { to { opacity: 1; } }
+    h1, h2 {
+      color: #facc15;
+    }
 
-    img.logo {
-      max-width: 120px;
-      margin-bottom: 1.5rem;
+    .logo {
+      width: 200px;
+      border-radius: 12px;
+      z-index: 1;
+      position: relative;
+    }
+
+    .btn {
+      background-color: #facc15;
+      color: #0d0d0d;
+      padding: 1rem 2rem;
       border-radius: 8px;
-      animation: logoPulse 3s ease-in-out infinite;
-    }
-
-    @keyframes logoPulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    h1 {
-      font-weight: 700;
-      font-size: 2.5rem;
-      margin-bottom: 0.25rem;
-      color: #facc15;
-      opacity: 0;
-      animation: fadeInUp 1s ease forwards;
-      animation-delay: 0.5s;
-    }
-
-    p.subtitle, p.meme-line {
-      font-size: 1.1rem;
-      color: #ddd;
-      margin-bottom: 1rem;
-      max-width: 350px;
-      line-height: 1.4;
-      opacity: 0;
-      animation: fadeInUp 1s ease forwards;
-      animation-delay: 0.7s;
-    }
-
-    p.meme-line {
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: #f87171;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 1rem;
-      border-radius: 10px;
-      margin-top: 1.5rem;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .social-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeInUp 1s ease forwards;
-      animation-delay: 0.9s;
-    }
-
-    .social-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: 2px solid #facc15;
-      color: #facc15;
-      cursor: pointer;
-      transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
       text-decoration: none;
-    }
-
-    .social-btn:hover {
-      background-color: #facc15;
-      color: #0a0a0a;
+      font-weight: bold;
+      display: inline-block;
+      margin: 1rem;
+      cursor: pointer;
       box-shadow: 0 0 12px #facc15;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
     }
 
-    a.btn, button.btn {
-      background-color: transparent;
-      border: 2px solid #facc15;
-      color: #facc15;
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-      margin: 0.5rem;
-      font-size: 1rem;
-      min-width: 160px;
-      opacity: 0;
-      animation: fadeInUp 1s ease forwards;
-      animation-delay: 1.1s;
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #facc15;
     }
 
-    a.btn:hover, button.btn:hover {
-      background-color: #facc15;
-      color: #0a0a0a;
-      box-shadow: 0 0 15px #facc15;
-      animation: pulse 1.5s infinite;
+    .socials {
+      margin-top: 2rem;
     }
 
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 15px #facc15; }
-      50% { box-shadow: 0 0 25px #facc15; }
+    .socials a {
+      display: inline-block;
+      margin: 0 10px;
     }
 
-    section {
-      margin-top: 3rem;
-      max-width: 350px;
-      text-align: left;
-      opacity: 0;
-      animation: fadeInUp 1s ease forwards;
-      animation-delay: 1.3s;
-    }
-
-    section h2 {
-      color: #facc15;
-      margin-bottom: 1rem;
-      font-size: 1.3rem;
-      font-weight: 700;
-      border-bottom: 1px solid #facc15;
-      padding-bottom: 0.25rem;
+    .social-icon {
+      width: 40px;
+      height: 40px;
     }
 
     ul {
       list-style: none;
-      color: #ddd;
-      line-height: 1.5;
-      font-size: 0.95rem;
+      padding: 0;
     }
 
-    #powerCounter {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #22c55e;
-      margin-top: 1rem;
-      text-align: center;
-    }
+    @media (max-width: 600px) {
+      .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+      }
 
-    @media (max-width: 400px) {
-      h1 { font-size: 2rem; }
-      p.subtitle { max-width: 100%; }
-      section { max-width: 100%; }
-      a.btn, button.btn { min-width: 100%; }
-      .social-buttons { gap: 0.5rem; }
-      .social-btn { width: 40px; height: 40px; }
+      .logo {
+        width: 150px;
+      }
+
+      .social-icon {
+        width: 32px;
+        height: 32px;
+      }
     }
   </style>
 </head>
 <body>
-  <img src="kamecoin-logo.png" alt="$KAMECOIN Logo" class="logo" />
+  <video autoplay muted loop playsinline id="bgVideo">
+    <source src="goku-video.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
 
+  <img src="kamecoin-logo.png" alt="$KAMECOIN Logo" class="logo">
   <h1>$KAMECOIN</h1>
-  <p class="subtitle">🔥 It’s Over 9000!<br>Join the Dojo. Become a meme legend in the crypto universe.</p>
-
-  <div class="social-buttons">
-    <a href="https://t.me/kamecoinsquad" class="social-btn" target="_blank" aria-label="Telegram">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
-        <path d="M22.5 3.5L1.5 10.5l5.4 2.1 1.9 6.9 2.7-7.8 6.1-4.7-13.7 8.6z"/>
-      </svg>
-    </a>
-    <a href="https://x.com/kamecoinbnb" class="social-btn" target="_blank" aria-label="Twitter/X">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1227" width="24" height="24" fill="currentColor">
-        <path d="M828 0h231L747 523l430 704H861L582 775 260 1227H30l342-548L0 0h252l248 424L828 0zM807 1102h64L387 140H317l490 962z"/>
-      </svg>
-    </a>
-  </div>
-
-  <div>
-    <button onclick="playSound()" class="btn">💥 Unleash Power!</button>
-  </div>
+  <p>🔥 It’s Over 9000!<br>Join the Dojo. Become a meme legend in the crypto universe.</p>
+  <a href="https://t.me/kamecoinsquad" class="btn" target="_blank">Join Telegram</a>
+  <button onclick="playSound()" class="btn">💥 Unleash Power!</button>
 
   <audio id="dbzSound">
-    <source src="over9000.mp3" type="audio/mpeg" />
+    <source src="over9000.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
-  <p class="meme-line">
-    Kame minted <strong>59 TRILLION</strong> tokens. Why?<br>‘Cause he’s a <em>degenerate power freak</em>.<br>And guess what? He wants to keep ‘em all and still go Ultra Instinct.
-  </p>
-
   <section>
     <h2>📊 Tokenomics</h2>
+    <p>KAME made 59 trillion tokens... but he's a greedy Super Saiyan and wants them ALL! 😈</p>
     <ul>
       <li>Total Supply: 59,000,000,000,000 $KAME</li>
       <li>100% Community Owned</li>
@@ -231,8 +140,17 @@
 
   <section>
     <h2>💥 Power Level</h2>
-    <div id="powerCounter">9000</div>
+    <div id="powerCounter" style="font-size: 2rem; font-weight: bold; color: #22c55e;">9000</div>
   </section>
+
+  <div class="socials">
+    <a href="https://t.me/kamecoinsquad" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" class="social-icon">
+    </a>
+    <a href="https://x.com/kamecoinbnb" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter/X" class="social-icon">
+    </a>
+  </div>
 
   <script>
     let power = 9000;
@@ -243,7 +161,7 @@
     }, 1500);
 
     function playSound() {
-      const sound = document.getElementById('dbzSound');
+      const sound = document.getElementById("dbzSound");
       sound.play();
     }
   </script>
