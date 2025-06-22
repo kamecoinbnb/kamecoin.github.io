@@ -2,213 +2,203 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>$KAMECOIN – It's Over 9000!</title>
-
-  <!-- Fonte estilo Ponke -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-
   <style>
-    * {
+    /* Background starfield effect */
+    body {
       margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body, html {
-      height: 100%;
-      font-family: 'Press Start 2P', cursive;
-      background: black;
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
       overflow-x: hidden;
-      color: white;
-    }
-
-    #bgVideo {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: -2;
-    }
-
-    .overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.75);
-      z-index: -1;
-    }
-
-    main {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem 1rem 4rem;
+      font-family: 'Arial', sans-serif;
+      color: #fff;
       text-align: center;
-      max-width: 1000px;
-      margin: 0 auto;
-      position: relative;
+      padding: 2rem;
     }
 
-    .logo {
-      width: 140px;
-      border-radius: 12px;
-      margin-bottom: 1rem;
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif') repeat;
+      opacity: 0.2;
+      z-index: -1;
+      animation: moveBg 60s linear infinite;
     }
 
-    h1 {
+    @keyframes moveBg {
+      from { background-position: 0 0; }
+      to { background-position: 10000px 10000px; }
+    }
+
+    h1, h2 {
       color: #facc15;
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      word-break: break-word;
     }
 
-    p {
-      font-size: 0.8rem;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
+    p, ul {
+      font-size: 1rem;
+      margin: 1rem auto;
+      max-width: 700px;
     }
 
     .btn {
       background-color: #facc15;
-      color: #000;
-      padding: 1rem 1.5rem;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      margin: 0.5rem;
-      display: inline-block;
+      color: #0d0d0d;
+      padding: 1rem 2rem;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
-      transition: transform 0.2s ease;
-      box-shadow: 0 0 10px #facc15;
+      display: inline-block;
+      margin-top: 1rem;
+      cursor: pointer;
+      box-shadow: 0 0 12px #facc15, 0 0 25px #facc15;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
     }
 
     .btn:hover {
       transform: scale(1.05);
+      box-shadow: 0 0 25px #facc15, 0 0 40px #facc15;
     }
 
-    .section {
-      margin-top: 2.5rem;
-      padding: 1.2rem;
-      width: 90%;
-      background: rgba(0,0,0,0.3);
-      border-radius: 10px;
-      box-shadow: 0 0 20px #facc15aa;
+    .logo-container {
+      position: relative;
+      display: inline-block;
     }
 
-    .section h2 {
-      color: #facc15;
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
+    .aura {
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      box-shadow:
+        0 0 40px 10px rgba(255, 255, 0, 0.6),
+        0 0 80px 20px rgba(255, 153, 0, 0.4),
+        0 0 100px 30px rgba(255, 0, 0, 0.2);
+      animation: pulseAura 2s infinite ease-in-out;
+      z-index: 0;
     }
 
-    .section p,
-    .section ul {
-      font-size: 0.65rem;
+    @keyframes pulseAura {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
     }
 
-    ul {
-      list-style: none;
-      padding-left: 0;
+    img.logo {
+      max-width: 220px;
+      border-radius: 12px;
+      position: relative;
+      z-index: 1;
     }
 
-    li::before {
-      content: "🔥 ";
+    section {
+      margin-top: 3rem;
     }
 
-    .power {
-      font-size: 1.2rem;
-      color: #22c55e;
-      margin-top: 1rem;
+    /* Ticker meme-style footer */
+    .ticker-meme {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      overflow: hidden;
+      background: transparent;
+      z-index: 20;
+      pointer-events: none;
     }
 
-    .socials {
-      margin-top: 2rem;
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
+    .ticker-track {
+      display: inline-block;
+      white-space: nowrap;
+      animation: memeScroll 10s linear infinite;
     }
 
-    .socials img {
-      width: 36px;
-      height: 36px;
-      background: #facc15;
-      padding: 6px;
-      border-radius: 6px;
-      transition: transform 0.2s ease;
-      filter: drop-shadow(0 0 6px #facc15);
+    .ticker-track span {
+      display: inline-block;
+      font-size: 1.5rem;
+      font-weight: bold;
+      animation: colorCycle 2s infinite, bounceY 1s infinite ease-in-out;
     }
 
-    .socials img:hover {
-      transform: scale(1.2);
+    @keyframes memeScroll {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
     }
 
-    @media (max-width: 480px) {
-      h1 { font-size: 1.4rem; }
-      p, .section ul, .section p { font-size: 0.55rem; }
-      .btn { font-size: 0.65rem; padding: 0.8rem 1.2rem; }
+    @keyframes colorCycle {
+      0% { color: #facc15; }
+      25% { color: #f43f5e; }
+      50% { color: #3b82f6; }
+      75% { color: #22c55e; }
+      100% { color: #facc15; }
+    }
+
+    @keyframes bounceY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    @media (max-width: 600px) {
+      .ticker-track span {
+        font-size: 1rem;
+      }
+
+      .ticker-meme {
+        background: rgba(0, 0, 0, 0.3);
+      }
     }
   </style>
 </head>
 <body>
-  <video autoplay muted loop playsinline id="bgVideo">
-    <source src="Goku-video.mp4" type="video/mp4" />
-  </video>
-  <div class="overlay"></div>
-
-  <main>
+  <div class="logo-container">
+    <div class="aura"></div>
     <img src="kamecoin-logo.png" alt="$KAMECOIN Logo" class="logo">
-    <h1>$KAMECOIN</h1>
-    <p>🔥 It's Over 9000!<br>Join the Dojo. Become a meme legend in the crypto universe.</p>
+  </div>
 
-    <div>
-      <a href="https://t.me/kamecoinsquad" class="btn" target="_blank">Join Telegram</a>
-      <button onclick="playSound()" class="btn">💥 Unleash Power!</button>
+  <h1>$KAMECOIN</h1>
+  <p>🔥 It’s Over 9000!<br>Join the Dojo. Become a meme legend in the crypto universe.</p>
+  <a href="https://t.me/kamecoinsquad" class="btn">Join Telegram</a>
+  <a href="https://x.com/kamecoinbnb" class="btn">Follow on X (Twitter)</a>
+  <button onclick="playSound()" class="btn">💥 Unleash Power!</button>
+
+  <audio id="dbzSound">
+    <source src="over9000.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <section>
+    <h2>📊 Tokenomics</h2>
+    <ul>
+      <li>Total Supply: 59,000,000,000,000 $KAME</li>
+      <li>100% Community Owned</li>
+      <li>LP Burned, Contract Renounced</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🗺️ Roadmap</h2>
+    <ul>
+      <li>✅ Launch $KAMECOIN</li>
+      <li>✅ Build Community on Telegram + Twitter</li>
+      <li>🔜 Listing on DEXTools & CoinGecko</li>
+      <li>🔜 Meme Contest & NFT Drop</li>
+      <li>🔜 Goku Dojo Staking Game</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>💥 Power Level</h2>
+    <div id="powerCounter" style="font-size: 2rem; font-weight: bold; color: #22c55e; margin-top: 1rem;">9000</div>
+  </section>
+
+  <!-- Rodapé animado estilo meme -->
+  <div class="ticker-meme">
+    <div class="ticker-track">
+      <span>$KAME 💥 $KAME 💥 $KAME 💥 $KAME 💥 $KAME 💥</span>
     </div>
-
-    <audio id="dbzSound">
-      <source src="over9000.mp3" type="audio/mpeg">
-    </audio>
-
-    <div class="section">
-      <h2>📊 Tokenomics</h2>
-      <p>KAME made 59 trillion tokens... but he's a greedy Super Saiyan and wants them ALL! 😈</p>
-      <ul>
-        <li>Total Supply: 59,000,000,000,000 $KAME</li>
-        <li>100% Community Owned</li>
-        <li>LP Burned, Contract Renounced</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>🗺️ Roadmap</h2>
-      <ul>
-        <li>✅ Launch $KAMECOIN</li>
-        <li>✅ Build Community on Telegram + Twitter</li>
-        <li>🔜 Listing on DEXTools & CoinGecko</li>
-        <li>🔜 Meme Contest & NFT Drop</li>
-        <li>🔜 Goku Dojo Staking Game</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>💥 Power Level</h2>
-      <div id="powerCounter" class="power">9000</div>
-    </div>
-
-    <div class="socials">
-      <a href="https://t.me/kamecoinsquad" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram">
-      </a>
-      <a href="https://x.com/kamecoinbnb" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter">
-      </a>
-    </div>
-  </main>
+  </div>
 
   <script>
     let power = 9000;
@@ -219,7 +209,8 @@
     }, 1500);
 
     function playSound() {
-      document.getElementById('dbzSound').play();
+      const sound = document.getElementById("dbzSound");
+      sound.play();
     }
   </script>
 </body>
