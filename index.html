@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>$KAMECOIN – It's Over 9000!</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
@@ -13,7 +13,7 @@
       font-family: 'Press Start 2P', cursive;
       color: #fff;
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 2rem;
     }
 
     body::before {
@@ -34,7 +34,6 @@
 
     h1, h2 {
       color: #facc15;
-      font-size: 1.2rem;
     }
 
     p, ul {
@@ -51,12 +50,10 @@
       text-decoration: none;
       font-weight: bold;
       display: inline-block;
-      margin: 0.5rem;
+      margin-top: 1rem;
       cursor: pointer;
       box-shadow: 0 0 12px #facc15, 0 0 25px #facc15;
       transition: transform 0.2s ease, box-shadow 0.3s ease;
-      font-family: 'Press Start 2P', cursive;
-      font-size: 0.6rem;
     }
 
     .btn:hover {
@@ -85,18 +82,9 @@
     }
 
     @keyframes pulseAura {
-      0% {
-        transform: scale(1);
-        opacity: 0.8;
-      }
-      50% {
-        transform: scale(1.15);
-        opacity: 1;
-      }
-      100% {
-        transform: scale(1);
-        opacity: 0.8;
-      }
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
     }
 
     img.logo {
@@ -111,36 +99,45 @@
     }
 
     footer {
-      margin-top: 4rem;
+      margin-top: 3rem;
       font-size: 0.6rem;
-      color: #ccc;
+      color: #999;
     }
 
-    .marquee {
+    .scrolling-text {
+      position: fixed;
+      bottom: 0;
       width: 100%;
-      overflow: hidden;
+      background: #facc15;
+      color: #000;
+      font-weight: bold;
       white-space: nowrap;
-      box-sizing: border-box;
-      border-top: 1px dashed #facc15;
-      border-bottom: 1px dashed #facc15;
-      margin: 2rem 0;
+      overflow: hidden;
+      z-index: 99;
     }
 
-    .marquee span {
+    .scrolling-text span {
       display: inline-block;
       padding-left: 100%;
-      animation: marquee 12s linear infinite;
-      color: #facc15;
+      animation: scroll-left 20s linear infinite;
     }
 
-    @keyframes marquee {
+    @keyframes scroll-left {
       0% { transform: translateX(0); }
       100% { transform: translateX(-100%); }
+    }
+
+    .game {
+      margin-top: 4rem;
+    }
+
+    canvas {
+      border: 2px solid #facc15;
+      margin-top: 1rem;
     }
   </style>
 </head>
 <body>
-
   <div class="logo-container">
     <div class="aura"></div>
     <img src="kamecoin-logo.png" alt="$KAMECOIN Logo" class="logo">
@@ -150,18 +147,15 @@
   <p>🔥 It’s Over 9000!<br>Join the Dojo. Become a meme legend in the crypto universe.</p>
 
   <div>
-    <a href="https://t.me/kamecoinsquad" class="btn">📢 Telegram</a>
-    <a href="https://x.com/kamecoinbnb" class="btn">🐦 Twitter</a>
+    <a href="https://t.me/kamecoinsquad" class="btn">Join Telegram</a>
+    <a href="https://x.com/kamecoinbnb" class="btn">Follow on X</a>
     <button onclick="playSound()" class="btn">💥 Unleash Power!</button>
   </div>
 
   <audio id="dbzSound">
     <source src="over9000.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
   </audio>
-
-  <div class="marquee">
-    <span>$KAME $KAME $KAME $KAME $KAME $KAME $KAME $KAME $KAME</span>
-  </div>
 
   <section>
     <h2>📊 Tokenomics</h2>
@@ -173,31 +167,77 @@
   </section>
 
   <section>
-    <h2>🗘️ Roadmap</h2>
+    <h2>🗺️ Roadmap</h2>
     <ul>
       <li>✅ Launch $KAMECOIN</li>
       <li>✅ Build Community on Telegram + Twitter</li>
-      <li>🖜️ Listing on DEXTools & CoinGecko</li>
-      <li>🖜️ Meme Contest & NFT Drop</li>
-      <li>🖜️ Goku Dojo Staking Game</li>
+      <li>🔜 Listing on DEXTools & CoinGecko</li>
+      <li>🔜 Meme Contest & NFT Drop</li>
+      <li>🔜 Goku Dojo Staking Game</li>
     </ul>
   </section>
 
   <section>
-    <h2>💥 Meme Mode Activated</h2>
-    <p>PONKE made 555 Million tokens but he's a greedy son of a bitch and wants to keep them all to himself.<br><br>
-    Meanwhile, $KAME dropped <strong>59 TRILLION</strong> just for the dojo! We don't hoard, we launch!</p>
+    <h2>💥 Power Level</h2>
+    <div id="powerCounter" style="font-size: 2rem; font-weight: bold; color: #22c55e; margin-top: 1rem;">9000</div>
+  </section>
+
+  <section class="game">
+    <h2>🕹️ Mini Game</h2>
+    <canvas id="gameCanvas" width="300" height="150"></canvas>
   </section>
 
   <footer>
-    © 2025 $KAMECOIN – Powered by Memes & Saiyan Rage 💥
+    &copy; 2025 $KAMECOIN. All rights reserved.
   </footer>
 
+  <div class="scrolling-text">
+    <span>$KAME • $KAME • $KAME • $KAME • $KAME • $KAME •</span>
+  </div>
+
   <script>
+    let power = 9000;
+    const counter = document.getElementById('powerCounter');
+    setInterval(() => {
+      power += Math.floor(Math.random() * 500);
+      counter.textContent = power.toLocaleString();
+    }, 1500);
+
     function playSound() {
       const sound = document.getElementById("dbzSound");
       sound.play();
     }
+
+    // Mini game basic runner
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    let x = 10;
+    let y = 100;
+    let jump = false;
+    let jumpHeight = 0;
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#facc15";
+      ctx.fillRect(x, y - jumpHeight, 20, 20);
+      ctx.fillStyle = "#fff";
+      ctx.fillRect(280, 100, 10, 30);
+
+      if (jump) {
+        jumpHeight += 5;
+        if (jumpHeight > 40) jump = false;
+      } else if (jumpHeight > 0) {
+        jumpHeight -= 5;
+      }
+    }
+
+    setInterval(draw, 100);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "Space") {
+        jump = true;
+      }
+    });
   </script>
 </body>
 </html>
