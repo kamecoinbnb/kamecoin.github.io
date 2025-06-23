@@ -116,7 +116,6 @@
       color: #ccc;
     }
 
-    /* Scrolling $KAME Text */
     .marquee {
       width: 100%;
       overflow: hidden;
@@ -158,7 +157,6 @@
 
   <audio id="dbzSound">
     <source src="over9000.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
   </audio>
 
   <div class="marquee">
@@ -175,33 +173,20 @@
   </section>
 
   <section>
-    <h2>🗺️ Roadmap</h2>
+    <h2>🗘️ Roadmap</h2>
     <ul>
       <li>✅ Launch $KAMECOIN</li>
       <li>✅ Build Community on Telegram + Twitter</li>
-      <li>🔜 Listing on DEXTools & CoinGecko</li>
-      <li>🔜 Meme Contest & NFT Drop</li>
-      <li>🔜 Goku Dojo Staking Game</li>
+      <li>🖜️ Listing on DEXTools & CoinGecko</li>
+      <li>🖜️ Meme Contest & NFT Drop</li>
+      <li>🖜️ Goku Dojo Staking Game</li>
     </ul>
   </section>
 
   <section>
     <h2>💥 Meme Mode Activated</h2>
-    <p>PONKE made 555 Million tokens but he's a greedy son of a bitch and wants to keep them all to himself.<br><br>
-    Meanwhile, $KAME dropped **59 TRILLION** just for the dojo! We don't hoard, we launch!</p>
-  </section>
-
-  <!-- Kamehameha Clicker Game -->
-  <section id="clicker" style="margin-top: 4rem;">
-    <h2>🔥 Charge Your Power Level!</h2>
-    <div id="powerDisplay" style="font-size: 1.5rem; margin: 1rem; color: #22c55e;">Power Level: 0</div>
-    <button class="btn" onclick="chargePower()">⚡ Charge</button>
-
-    <div id="gokuImage" style="display: none; margin-top: 2rem;">
-      <img src="https://media.tenor.com/xoOAdkDWBKQAAAAC/goku-kamehameha.gif" alt="Goku Kamehameha" style="max-width: 300px; width: 80%; border-radius: 12px;" />
-    </div>
-
-    <audio id="kameSound" src="over9000.mp3"></audio>
+    <p>PONKE made 555 Million tokens but he's a greedy son of a bitch and wants to keep them all to himself.<br><br>
+    Meanwhile, $KAME dropped <strong>59 TRILLION</strong> just for the dojo! We don't hoard, we launch!</p>
   </section>
 
   <footer>
@@ -213,43 +198,6 @@
       const sound = document.getElementById("dbzSound");
       sound.play();
     }
-
-    // Power Counter (dynamic)
-    let dynamicPower = 9000;
-    const counter = document.createElement('div');
-    counter.style.fontSize = '2rem';
-    counter.style.marginTop = '1rem';
-    counter.style.color = '#22c55e';
-    document.body.appendChild(counter);
-
-    setInterval(() => {
-      dynamicPower += Math.floor(Math.random() * 500);
-      counter.textContent = "Live Power: " + dynamicPower.toLocaleString();
-    }, 1500);
-
-    // Clicker Game Logic
-    let power = 0;
-    const powerDisplay = document.getElementById("powerDisplay");
-    const sound = document.getElementById("kameSound");
-    const gokuImg = document.getElementById("gokuImage");
-
-    function chargePower() {
-      power += 500;
-      powerDisplay.textContent = `Power Level: ${power.toLocaleString()}`;
-
-      if (power >= 9000) {
-        sound.play();
-        gokuImg.style.display = "block";
-        powerDisplay.textContent = "💥 KAMEHAMEHAAAA!!!";
-
-        setTimeout(() => {
-          gokuImg.style.display = "none";
-          power = 0;
-          powerDisplay.textContent = `Power Level: ${power}`;
-        }, 4000);
-      }
-    }
   </script>
-
 </body>
 </html>
