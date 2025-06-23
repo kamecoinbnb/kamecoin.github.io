@@ -13,7 +13,7 @@
     }
     body, html {
       font-family: 'Press Start 2P', cursive;
-      background: linear-gradient(160deg, #0c0d13 0%, #1f2330 100%);
+      background: linear-gradient(135deg, #000000 0%, #1e1b4b 100%);
       color: white;
       overflow-x: hidden;
     }
@@ -23,89 +23,98 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
-      background: url('kame-bg.gif') center/cover no-repeat;
+      background: url('https://media.tenor.com/N3D9rVWWP-QAAAAC/dbz-goku.gif') center/cover no-repeat;
       text-align: center;
       padding: 2rem;
+      border-bottom: 5px solid #facc15;
     }
     header img {
-      width: 160px;
+      width: 180px;
       margin-bottom: 1rem;
-      animation: pulse 3s infinite;
+      animation: glow 3s infinite;
     }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
+    @keyframes glow {
+      0% { filter: drop-shadow(0 0 5px #facc15); }
+      50% { filter: drop-shadow(0 0 20px #facc15); }
+      100% { filter: drop-shadow(0 0 5px #facc15); }
     }
     h1 {
-      font-size: 1.6rem;
+      font-size: 2rem;
       color: #facc15;
+      text-shadow: 0 0 10px #facc15;
       margin-bottom: 1rem;
     }
     .hero-buttons a, .hero-buttons button {
-      background: #facc15;
+      background: linear-gradient(to right, #facc15, #fbbf24);
       color: #000;
       padding: 1rem 1.5rem;
-      font-size: 0.6rem;
+      font-size: 0.75rem;
       margin: 0.5rem;
-      border-radius: 8px;
+      border-radius: 10px;
       text-decoration: none;
-      transition: transform 0.2s;
-      box-shadow: 0 0 10px #facc15;
+      transition: all 0.2s ease;
+      box-shadow: 0 0 15px #facc15aa;
     }
     .hero-buttons a:hover, .hero-buttons button:hover {
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
     .section {
-      max-width: 900px;
-      margin: 3rem auto;
+      max-width: 960px;
+      margin: 4rem auto;
       padding: 2rem;
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 10px;
-      box-shadow: 0 0 15px #facc15aa;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      border: 2px dashed #facc15;
       text-align: center;
     }
     .section h2 {
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: #facc15;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
+      text-shadow: 0 0 8px #facc15;
     }
     .section p, .section ul {
-      font-size: 0.55rem;
-      line-height: 1.6;
+      font-size: 0.6rem;
+      line-height: 1.8;
     }
     ul {
       list-style: none;
       padding-left: 0;
     }
     li::before {
-      content: "🔥 ";
+      content: "🌟 ";
     }
     .news-item {
-      background: #1c1f2b;
+      background: #312e81;
+      color: #fff;
       margin: 0.5rem 0;
-      padding: 0.5rem;
-      border-left: 4px solid #facc15;
+      padding: 0.7rem;
+      border-left: 6px solid #facc15;
+      border-radius: 6px;
+      font-size: 0.55rem;
     }
     .socials {
-      margin-top: 2rem;
+      margin-top: 2.5rem;
       display: flex;
-      gap: 1rem;
+      gap: 1.5rem;
       justify-content: center;
       flex-wrap: wrap;
     }
     .socials img {
-      width: 36px;
-      height: 36px;
+      width: 42px;
+      height: 42px;
       background: #facc15;
       padding: 6px;
-      border-radius: 6px;
+      border-radius: 50%;
       filter: drop-shadow(0 0 6px #facc15);
     }
     footer {
       text-align: center;
       font-size: 0.5rem;
-      color: #888;
-      padding: 1rem;
+      color: #aaa;
+      padding: 2rem 1rem;
+      background: #0e0e1b;
+      margin-top: 3rem;
     }
   </style>
 </head>
@@ -114,8 +123,8 @@
     <img src="kamecoin-logo.png" alt="$KAMECOIN Logo">
     <h1>$KAMECOIN</h1>
     <div class="hero-buttons">
-      <a href="https://t.me/kamecoinsquad" target="_blank">Join Telegram</a>
-      <button onclick="playSound()">💥 Unleash Power!</button>
+      <a href="https://t.me/kamecoinsquad" target="_blank">Join the Dojo 🥋</a>
+      <button onclick="playSound()">💥 Unleash Power</button>
     </div>
     <audio id="dbzSound">
       <source src="over9000.mp3" type="audio/mpeg">
@@ -124,39 +133,39 @@
 
   <main>
     <section class="section">
-      <h2>📢 Latest News</h2>
-      <div class="news-item">Jun 20, 2025 – $KAME staking launching soon! Prepare your power levels!</div>
-      <div class="news-item">Jun 10, 2025 – $KAME listed on DEXTools + CMC incoming!</div>
+      <h2>🔥 KAME NEWS</h2>
+      <div class="news-item">🚀 Jun 22 – Goku Dojo Game Teaser Dropping!</div>
+      <div class="news-item">🎮 Jun 15 – KameSwap UI sneak peek released!</div>
     </section>
 
     <section class="section">
-      <h2>📊 Tokenomics</h2>
+      <h2>💰 TOKENOMICS</h2>
       <ul>
-        <li>Total Supply: 59T $KAME</li>
-        <li>100% Community Owned</li>
-        <li>LP Burned, Contract Renounced</li>
+        <li>🔥 Total Supply: 59 Trillion $KAME</li>
+        <li>🙌 100% Meme Fuel – Community Driven</li>
+        <li>🔥 LP Burned – Contract Renounced</li>
       </ul>
     </section>
 
     <section class="section">
-      <h2>🗺️ Roadmap</h2>
+      <h2>🧭 ROADMAP</h2>
       <ul>
         <li>✅ Launch $KAMECOIN</li>
-        <li>✅ Grow Community</li>
-        <li>🔜 DEX Listing</li>
-        <li>🔜 NFT Drop</li>
-        <li>🔜 Goku Dojo Game</li>
+        <li>✅ Grow KameSquad on Telegram + Twitter</li>
+        <li>🚀 DEXTools + CMC Listing</li>
+        <li>🎨 NFT + Meme Contest</li>
+        <li>🕹️ Goku Dojo Game</li>
       </ul>
     </section>
 
     <section class="section">
-      <h2>💱 KameSwap DEX (Coming Soon)</h2>
-      <p>Trade, earn, and meme with power. KameSwap lets you unleash the full force of $KAME.</p>
+      <h2>💱 KameSwap – The MemeDEX</h2>
+      <p>Coming Soon: Meme your way to financial freedom. Swap, stake and power up like a true Saiyan.</p>
     </section>
 
     <section class="section">
       <h2>💥 Power Level</h2>
-      <div id="powerCounter" class="power">9000</div>
+      <div id="powerCounter" class="power" style="font-size: 1.2rem; color: #22c55e; margin-top: 1rem;">9000</div>
     </section>
 
     <div class="socials">
@@ -170,14 +179,14 @@
   </main>
 
   <footer>
-    Made with 💛 by the $KAMECOIN Dojo
+    Made with 💛 by the $KAMECOIN Dojo – It's still over 9000!
   </footer>
 
   <script>
     let power = 9000;
     const counter = document.getElementById('powerCounter');
     setInterval(() => {
-      power += Math.floor(Math.random() * 500);
+      power += Math.floor(Math.random() * 1000);
       counter.textContent = power.toLocaleString();
     }, 1500);
 
