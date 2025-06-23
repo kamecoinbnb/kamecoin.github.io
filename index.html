@@ -188,16 +188,21 @@
     </audio>
 
     <div class="section">
+      <h2>⏳ Fairlaunch Countdown</h2>
+      <div id="countdown" style="font-size: 0.8rem; margin-top: 1rem;">Loading...</div>
+    </div>
+
+    <div class="section">
       <h2>📜 Contract Address</h2>
-      <p style="font-size: 0.5rem; word-break: break-all;" id="contract">0x6c50267a047C6cbe42d31b0d9157e0Cb61Fd2634</p>
-      <button onclick="copyContract()" class="btn">📋 Copy Address</button>
+      <p id="contract">0x000000000000000000000000000000000000KAME</p>
+      <button class="btn" onclick="copyAddress()">📋 Copy</button>
     </div>
 
     <div class="section">
       <h2>📊 Tokenomics</h2>
-      <p>KAME made 59 Quadrillion tokens… but he's a greedy Super Saiyan and wants them ALL! 😈</p>
+      <p>KAME made 59 trillion tokens… but he's a greedy Super Saiyan and wants them ALL! 😈</p>
       <ul>
-        <li>Total Supply: 59,000,000,000,000,000 $KAME</li>
+        <li>Total Supply: 59,000,000,000,000 $KAME</li>
         <li>100% Community Owned</li>
         <li>LP Burned, Contract Renounced</li>
       </ul>
@@ -245,12 +250,37 @@
       document.getElementById('dbzSound').play();
     }
 
-    function copyContract() {
-      const contract = document.getElementById('contract').innerText;
-      navigator.clipboard.writeText(contract).then(() => {
-        alert('✅ Contract copied!');
-      });
+    function copyAddress() {
+      const text = document.getElementById('contract').textContent;
+      navigator.clipboard.writeText(text);
+      alert("Contract copied: " + text);
     }
+
+    // Countdown
+    const launchDate = new Date('2025-06-26T12:00:00Z').getTime();
+    const countdownElement = document.getElementById('countdown');
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+
+      if (distance <= 0) {
+        countdownElement.textContent = "🚀 It's Over 9000! Fairlaunch is LIVE!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownElement.textContent =
+        `${days}d ${String(hours).padStart(2, '0')}h : ${String(minutes).padStart(2, '0')}m : ${String(seconds).padStart(2, '0')}s`;
+
+      setTimeout(updateCountdown, 1000);
+    }
+
+    updateCountdown();
   </script>
 </body>
 </html>
