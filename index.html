@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>$KAMECOIN – It's Over 9000!</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
+    /* Background starfield effect */
     body {
       margin: 0;
       background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-      overflow-x: hidden;
-      font-family: 'Press Start 2P', cursive;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
       color: #fff;
       text-align: center;
       padding: 2rem;
@@ -37,7 +37,7 @@
     }
 
     p, ul {
-      font-size: 0.75rem;
+      font-size: 1rem;
       margin: 1rem auto;
       max-width: 700px;
     }
@@ -82,9 +82,18 @@
     }
 
     @keyframes pulseAura {
-      0% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.15); opacity: 1; }
-      100% { transform: scale(1); opacity: 0.8; }
+      0% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+      50% {
+        transform: scale(1.15);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
     }
 
     img.logo {
@@ -97,44 +106,6 @@
     section {
       margin-top: 3rem;
     }
-
-    footer {
-      margin-top: 3rem;
-      font-size: 0.6rem;
-      color: #999;
-    }
-
-    .scrolling-text {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: #facc15;
-      color: #000;
-      font-weight: bold;
-      white-space: nowrap;
-      overflow: hidden;
-      z-index: 99;
-    }
-
-    .scrolling-text span {
-      display: inline-block;
-      padding-left: 100%;
-      animation: scroll-left 20s linear infinite;
-    }
-
-    @keyframes scroll-left {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
-
-    .game {
-      margin-top: 4rem;
-    }
-
-    canvas {
-      border: 2px solid #facc15;
-      margin-top: 1rem;
-    }
   </style>
 </head>
 <body>
@@ -145,12 +116,8 @@
 
   <h1>$KAMECOIN</h1>
   <p>🔥 It’s Over 9000!<br>Join the Dojo. Become a meme legend in the crypto universe.</p>
-
-  <div>
-    <a href="https://t.me/kamecoinsquad" class="btn">Join Telegram</a>
-    <a href="https://x.com/kamecoinbnb" class="btn">Follow on X</a>
-    <button onclick="playSound()" class="btn">💥 Unleash Power!</button>
-  </div>
+  <a href="https://t.me/kamecoinsquad" class="btn">Join Telegram</a>
+  <button onclick="playSound()" class="btn">💥 Unleash Power!</button>
 
   <audio id="dbzSound">
     <source src="over9000.mp3" type="audio/mpeg">
@@ -182,19 +149,6 @@
     <div id="powerCounter" style="font-size: 2rem; font-weight: bold; color: #22c55e; margin-top: 1rem;">9000</div>
   </section>
 
-  <section class="game">
-    <h2>🕹️ Mini Game</h2>
-    <canvas id="gameCanvas" width="300" height="150"></canvas>
-  </section>
-
-  <footer>
-    &copy; 2025 $KAMECOIN. All rights reserved.
-  </footer>
-
-  <div class="scrolling-text">
-    <span>$KAME • $KAME • $KAME • $KAME • $KAME • $KAME •</span>
-  </div>
-
   <script>
     let power = 9000;
     const counter = document.getElementById('powerCounter');
@@ -207,37 +161,6 @@
       const sound = document.getElementById("dbzSound");
       sound.play();
     }
-
-    // Mini game basic runner
-    const canvas = document.getElementById("gameCanvas");
-    const ctx = canvas.getContext("2d");
-    let x = 10;
-    let y = 100;
-    let jump = false;
-    let jumpHeight = 0;
-
-    function draw() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#facc15";
-      ctx.fillRect(x, y - jumpHeight, 20, 20);
-      ctx.fillStyle = "#fff";
-      ctx.fillRect(280, 100, 10, 30);
-
-      if (jump) {
-        jumpHeight += 5;
-        if (jumpHeight > 40) jump = false;
-      } else if (jumpHeight > 0) {
-        jumpHeight -= 5;
-      }
-    }
-
-    setInterval(draw, 100);
-
-    document.addEventListener("keydown", (e) => {
-      if (e.code === "Space") {
-        jump = true;
-      }
-    });
   </script>
 </body>
 </html>
