@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>$KAMECOIN – It's Over 9000!</title>
 
-  <!-- Fonte estilo pixel -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
   <style>
@@ -18,7 +17,7 @@
     body, html {
       height: 100%;
       font-family: 'Press Start 2P', cursive;
-      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      background: linear-gradient(180deg, #0d0d1a 0%, #1a1a40 100%);
       color: white;
       overflow-x: hidden;
     }
@@ -60,14 +59,18 @@
     }
 
     .logo {
-      width: 140px;
+      width: 160px;
       border-radius: 12px;
       margin-bottom: 1rem;
+      box-shadow: 0 0 30px #facc15, 0 0 60px #ff6600;
     }
 
     h1 {
-      color: #facc15;
-      font-size: 1.6rem;
+      font-size: 2rem;
+      background: linear-gradient(to right, #ffcc00, #ff5733, #ff0000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px #000;
       margin-bottom: 1.5rem;
     }
 
@@ -78,28 +81,30 @@
     }
 
     .btn {
-      background-color: #facc15;
+      background: linear-gradient(to right, #facc15, #ff4500);
       color: #000;
       padding: 1rem 1.5rem;
       border-radius: 6px;
       font-size: 0.6rem;
       margin: 0.5rem;
-      display: inline-block;
       text-decoration: none;
       font-weight: bold;
       transition: transform 0.2s ease;
-      box-shadow: 0 0 10px #facc15;
+      box-shadow: 0 0 12px #facc15, 0 0 24px #ff4500;
+      border: 2px solid #000;
+      text-transform: uppercase;
     }
 
     .btn:hover {
-      transform: scale(1.05);
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #facc15, 0 0 40px #ff6600;
     }
 
     .section {
       margin-top: 2.5rem;
       padding: 1.2rem;
       width: 90%;
-      background: rgba(0,0,0,0.3);
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 10px;
       box-shadow: 0 0 20px #facc15aa;
     }
@@ -108,6 +113,7 @@
       color: #facc15;
       font-size: 1rem;
       margin-bottom: 1rem;
+      text-shadow: 1px 1px #000;
     }
 
     .section p,
@@ -125,8 +131,9 @@
     }
 
     .power {
-      font-size: 1rem;
-      color: #22c55e;
+      font-size: 2rem;
+      color: #00ff88;
+      text-shadow: 0 0 10px #00ff88, 0 0 30px #00ffaa;
       margin-top: 1rem;
     }
 
@@ -158,6 +165,26 @@
       color: #888;
       padding: 1.5rem 1rem 2rem;
       font-family: 'Press Start 2P', cursive;
+    }
+
+    .news-list {
+      font-size: 0.55rem;
+      list-style: none;
+      padding-left: 0;
+      text-align: left;
+    }
+
+    .news-list li {
+      margin-bottom: 0.7rem;
+      position: relative;
+      padding-left: 1.2rem;
+    }
+
+    .news-list li::before {
+      content: "🗞️ ";
+      position: absolute;
+      left: 0;
+      top: 0;
     }
 
     @media (max-width: 480px) {
@@ -211,6 +238,15 @@
     <div class="section">
       <h2>💥 Power Level</h2>
       <div id="powerCounter" class="power">9000</div>
+    </div>
+
+    <div class="section">
+      <h2>📰 Latest News</h2>
+      <ul class="news-list">
+        <li>🔥 $KAMECOIN hit a new all-time swap volume record last week!</li>
+        <li>🚀 Goku Dojo staking launched — learn how to participate.</li>
+        <li>📢 Partnership with NFT projects confirmed for next month.</li>
+      </ul>
     </div>
 
     <div class="socials">
