@@ -2,252 +2,162 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>$KAMECOIN – It's Over 9000!</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body, html {
-      height: 100%;
       font-family: 'Press Start 2P', cursive;
-      background: linear-gradient(180deg, #0d0d1a 0%, #1a1a40 100%);
+      background: linear-gradient(160deg, #0c0d13 0%, #1f2330 100%);
       color: white;
       overflow-x: hidden;
     }
-
-    .marquee-container {
-      width: 100%;
-      overflow: hidden;
-      white-space: nowrap;
-      background: #facc15;
-      color: #000;
-      font-family: 'Press Start 2P', cursive;
-      font-size: 0.65rem;
-      padding: 0.5rem 0;
-      box-shadow: 0 0 10px #facc15;
-      z-index: 1000;
-      position: relative;
-    }
-
-    .marquee-text {
-      display: inline-block;
-      animation: scrollText 12s linear infinite;
-      padding-left: 100%;
-    }
-
-    @keyframes scrollText {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
-
-    main {
-      min-height: 100vh;
+    header {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 2rem 1rem 4rem;
+      justify-content: center;
+      height: 100vh;
+      background: url('kame-bg.gif') center/cover no-repeat;
       text-align: center;
-      max-width: 1000px;
-      margin: 0 auto;
+      padding: 2rem;
     }
-
-    .logo {
+    header img {
       width: 160px;
-      border-radius: 12px;
       margin-bottom: 1rem;
-      box-shadow: 0 0 30px #facc15, 0 0 60px #ff6600;
+      animation: pulse 3s infinite;
     }
-
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
     h1 {
-      font-size: 2rem;
-      background: linear-gradient(to right, #ffcc00, #ff5733, #ff0000);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 2px 2px #000;
-      margin-bottom: 1.5rem;
+      font-size: 1.6rem;
+      color: #facc15;
+      margin-bottom: 1rem;
     }
-
-    p {
-      font-size: 0.65rem;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-
-    .btn {
-      background: linear-gradient(to right, #facc15, #ff4500);
+    .hero-buttons a, .hero-buttons button {
+      background: #facc15;
       color: #000;
       padding: 1rem 1.5rem;
-      border-radius: 6px;
       font-size: 0.6rem;
       margin: 0.5rem;
+      border-radius: 8px;
       text-decoration: none;
-      font-weight: bold;
-      transition: transform 0.2s ease;
-      box-shadow: 0 0 12px #facc15, 0 0 24px #ff4500;
-      border: 2px solid #000;
-      text-transform: uppercase;
+      transition: transform 0.2s;
+      box-shadow: 0 0 10px #facc15;
     }
-
-    .btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 20px #facc15, 0 0 40px #ff6600;
+    .hero-buttons a:hover, .hero-buttons button:hover {
+      transform: scale(1.05);
     }
-
     .section {
-      margin-top: 2.5rem;
-      padding: 1.2rem;
-      width: 90%;
-      background: rgba(255, 255, 255, 0.05);
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.2);
       border-radius: 10px;
-      box-shadow: 0 0 20px #facc15aa;
+      box-shadow: 0 0 15px #facc15aa;
+      text-align: center;
     }
-
     .section h2 {
-      color: #facc15;
       font-size: 1rem;
+      color: #facc15;
       margin-bottom: 1rem;
-      text-shadow: 1px 1px #000;
     }
-
-    .section p,
-    .section ul {
+    .section p, .section ul {
       font-size: 0.55rem;
+      line-height: 1.6;
     }
-
     ul {
       list-style: none;
       padding-left: 0;
     }
-
     li::before {
       content: "🔥 ";
     }
-
-    .power {
-      font-size: 2rem;
-      color: #00ff88;
-      text-shadow: 0 0 10px #00ff88, 0 0 30px #00ffaa;
-      margin-top: 1rem;
+    .news-item {
+      background: #1c1f2b;
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      border-left: 4px solid #facc15;
     }
-
     .socials {
       margin-top: 2rem;
       display: flex;
-      gap: 20px;
+      gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
     }
-
     .socials img {
       width: 36px;
       height: 36px;
       background: #facc15;
       padding: 6px;
       border-radius: 6px;
-      transition: transform 0.2s ease;
       filter: drop-shadow(0 0 6px #facc15);
     }
-
-    .socials img:hover {
-      transform: scale(1.2);
-    }
-
     footer {
       text-align: center;
       font-size: 0.5rem;
       color: #888;
-      padding: 1.5rem 1rem 2rem;
-      font-family: 'Press Start 2P', cursive;
-    }
-
-    .news-list {
-      font-size: 0.55rem;
-      list-style: none;
-      padding-left: 0;
-      text-align: left;
-    }
-
-    .news-list li {
-      margin-bottom: 0.7rem;
-      position: relative;
-      padding-left: 1.2rem;
-    }
-
-    .news-list li::before {
-      content: "🗞️ ";
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-
-    @media (max-width: 480px) {
-      h1 { font-size: 1.2rem; }
-      p, .section ul, .section p { font-size: 0.48rem; }
-      .btn { font-size: 0.5rem; padding: 0.6rem 1rem; }
-      footer { font-size: 0.4rem; }
+      padding: 1rem;
     }
   </style>
 </head>
 <body>
-  <div class="marquee-container">
-    <div class="marquee-text">$KAME $KAME $KAME $KAME $KAME $KAME $KAME $KAME</div>
-  </div>
-
-  <main>
-    <img src="kamecoin-logo.png" alt="$KAMECOIN Logo" class="logo">
+  <header>
+    <img src="kamecoin-logo.png" alt="$KAMECOIN Logo">
     <h1>$KAMECOIN</h1>
-    <p>🔥 It's Over 9000!<br>Join the Dojo. Become a meme legend in the crypto universe.</p>
-
-    <div>
-      <a href="https://t.me/kamecoinsquad" class="btn" target="_blank">Join Telegram</a>
-      <button onclick="playSound()" class="btn">💥 Unleash Power!</button>
+    <div class="hero-buttons">
+      <a href="https://t.me/kamecoinsquad" target="_blank">Join Telegram</a>
+      <button onclick="playSound()">💥 Unleash Power!</button>
     </div>
-
     <audio id="dbzSound">
       <source src="over9000.mp3" type="audio/mpeg">
     </audio>
+  </header>
 
-    <div class="section">
+  <main>
+    <section class="section">
+      <h2>📢 Latest News</h2>
+      <div class="news-item">Jun 20, 2025 – $KAME staking launching soon! Prepare your power levels!</div>
+      <div class="news-item">Jun 10, 2025 – $KAME listed on DEXTools + CMC incoming!</div>
+    </section>
+
+    <section class="section">
       <h2>📊 Tokenomics</h2>
-      <p>KAME made 59 trillion tokens… but he's a greedy Super Saiyan and wants them ALL! 😈</p>
       <ul>
-        <li>Total Supply: 59,000,000,000,000 $KAME</li>
+        <li>Total Supply: 59T $KAME</li>
         <li>100% Community Owned</li>
         <li>LP Burned, Contract Renounced</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="section">
+    <section class="section">
       <h2>🗺️ Roadmap</h2>
       <ul>
         <li>✅ Launch $KAMECOIN</li>
-        <li>✅ Build Community on Telegram + Twitter</li>
-        <li>🔜 Listing on DEXTools & CoinGecko</li>
-        <li>🔜 Meme Contest & NFT Drop</li>
-        <li>🔜 Goku Dojo Staking Game</li>
+        <li>✅ Grow Community</li>
+        <li>🔜 DEX Listing</li>
+        <li>🔜 NFT Drop</li>
+        <li>🔜 Goku Dojo Game</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="section">
+    <section class="section">
+      <h2>💱 KameSwap DEX (Coming Soon)</h2>
+      <p>Trade, earn, and meme with power. KameSwap lets you unleash the full force of $KAME.</p>
+    </section>
+
+    <section class="section">
       <h2>💥 Power Level</h2>
       <div id="powerCounter" class="power">9000</div>
-    </div>
-
-    <div class="section">
-      <h2>📰 Latest News</h2>
-      <ul class="news-list">
-        <li>🔥 $KAMECOIN will launch on defilaunchapp </li>
-        <li>🚀 Goku Dojo staking launched soon— learn how to participate.</li>
-        <li>📢 Partnership with NFT projects confirmed for next month.</li>
-      </ul>
-    </div>
+    </section>
 
     <div class="socials">
       <a href="https://t.me/kamecoinsquad" target="_blank">
