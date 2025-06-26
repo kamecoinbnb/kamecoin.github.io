@@ -2,113 +2,109 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>$KAMECOIN – It's Over 9000!</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     html, body {
       height: 100%;
       font-family: 'Press Start 2P', cursive;
-      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-      color: white;
+      background: linear-gradient(145deg, #090a0f, #1e2029);
+      color: #fff;
       overflow-x: hidden;
+      background-image: url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
     }
 
     .marquee-container {
       width: 100%;
+      background: #ffb800;
+      padding: 0.6rem 0;
       overflow: hidden;
-      white-space: nowrap;
-      background: #facc15;
-      color: #000;
-      font-size: 0.7rem;
-      padding: 0.5rem 0;
-      box-shadow: 0 0 10px #facc15;
+      box-shadow: 0 0 12px #ffb800;
     }
 
     .marquee-text {
       display: inline-block;
-      animation: scrollText 12s linear infinite;
-      padding-left: 100%;
+      white-space: nowrap;
+      animation: scroll 15s linear infinite;
+      color: #000;
+      font-size: 0.75rem;
     }
 
-    @keyframes scrollText {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
+    @keyframes scroll {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
     }
 
     main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem 1rem;
       text-align: center;
-      max-width: 960px;
+      padding: 2rem 1rem;
+      max-width: 1000px;
       margin: auto;
     }
 
     .logo {
-      width: 120px;
-      border-radius: 12px;
-      margin-bottom: 1rem;
+      width: 150px;
+      border-radius: 15px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 15px #ffb800;
     }
 
     h1 {
-      color: #facc15;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
+      color: #ffb800;
       margin-bottom: 1rem;
     }
 
     p {
       font-size: 0.65rem;
-      line-height: 1.6;
       margin-bottom: 1rem;
     }
 
     .btn {
-      background-color: #facc15;
+      background: #ffb800;
       color: #000;
       padding: 1rem 1.5rem;
-      border-radius: 8px;
-      font-size: 0.65rem;
-      margin: 0.5rem;
+      font-size: 0.6rem;
+      margin: 0.4rem;
       text-decoration: none;
+      border-radius: 10px;
       display: inline-block;
       font-weight: bold;
-      transition: transform 0.2s ease;
-      box-shadow: 0 0 10px #facc15;
+      transition: all 0.2s ease;
+      box-shadow: 0 0 10px #ffb800;
     }
 
-    .btn:hover { transform: scale(1.05); }
+    .btn:hover {
+      transform: scale(1.08);
+    }
 
     .section {
       margin-top: 2rem;
-      padding: 1rem;
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 10px;
-      box-shadow: 0 0 15px #facc15aa;
-      width: 100%;
+      padding: 1.2rem;
+      background: rgba(255, 184, 0, 0.05);
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 184, 0, 0.3);
     }
 
     .section h2 {
-      font-size: 0.9rem;
-      color: #facc15;
-      margin-bottom: 0.8rem;
+      color: #ffb800;
+      font-size: 1rem;
+      margin-bottom: 1rem;
     }
 
-    .section p,
-    .section ul {
+    .section p, .section ul {
       font-size: 0.55rem;
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
     li::before {
-      content: "🔥 ";
+      content: "\1F525 ";
     }
 
     .power {
@@ -128,11 +124,11 @@
     .socials img {
       width: 40px;
       height: 40px;
-      background: #facc15;
-      padding: 6px;
-      border-radius: 8px;
+      background: #ffb800;
+      padding: 8px;
+      border-radius: 10px;
       transition: transform 0.2s ease;
-      filter: drop-shadow(0 0 6px #facc15);
+      filter: drop-shadow(0 0 6px #ffb800);
     }
 
     .socials img:hover {
@@ -147,19 +143,19 @@
     }
 
     @media (max-width: 480px) {
-      h1 { font-size: 1.1rem; }
+      h1 { font-size: 1.2rem; }
       p, .section p, .section ul { font-size: 0.5rem; }
-      .btn { font-size: 0.55rem; padding: 0.8rem 1.2rem; }
+      .btn { font-size: 0.5rem; padding: 0.6rem 1rem; }
     }
   </style>
 </head>
 <body>
   <div class="marquee-container">
-    <div class="marquee-text">$KAME $KAME $KAME $KAME $KAME $KAME $KAME</div>
+    <div class="marquee-text">🔥 $KAMECOIN is powering up! Join the crypto dojo! 🔥</div>
   </div>
 
   <main>
-    <img src="kamecoin-logo.png" alt="$KAMECOIN Logo" class="logo" />
+    <img src="kamecoin-logo.png" alt="$KAMECOIN Logo" class="logo">
     <h1>$KAMECOIN</h1>
     <p>🔥 It's Over 9000!<br>Join the Dojo. Become a meme legend in the crypto universe.</p>
 
@@ -169,7 +165,7 @@
     </div>
 
     <audio id="dbzSound">
-      <source src="over9000.mp3" type="audio/mpeg" />
+      <source src="over9000.mp3" type="audio/mpeg">
     </audio>
 
     <div class="section">
@@ -180,7 +176,7 @@
 
     <div class="section">
       <h2>📊 Tokenomics</h2>
-      <p>KAME criou 59 trilhões de tokens… e quer todos pra ele! 😈</p>
+      <p>KAME minted 59 trillion tokens... but this greedy Super Saiyan wants them ALL! 😈</p>
       <ul>
         <li>Total Supply: 59,000,000,000,000,000,000 $KAME</li>
         <li>100% Community Owned</li>
@@ -206,10 +202,10 @@
 
     <div class="socials">
       <a href="https://t.me/kamecoinsquad" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" />
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram">
       </a>
       <a href="https://x.com/kamecoinbnb" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" />
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter">
       </a>
     </div>
   </main>
