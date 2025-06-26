@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>$KAMECOIN – It's Over 9000!</title>
 
-  <!-- Fonte estilo pixel -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <!-- Fonte moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -17,8 +17,8 @@
 
     body, html {
       height: 100%;
-      font-family: 'Press Start 2P', cursive;
-      background: #000000;
+      font-family: 'Poppins', sans-serif;
+      background: #000;
       color: white;
       overflow-x: hidden;
     }
@@ -29,34 +29,29 @@
       white-space: nowrap;
       background: #facc15;
       color: #000;
-      font-family: 'Press Start 2P', cursive;
-      font-size: 0.65rem;
+      font-size: 0.7rem;
       padding: 0.5rem 0;
       box-shadow: 0 0 10px #facc15;
-      z-index: 1000;
       position: relative;
+      z-index: 1000;
     }
 
     .marquee-text {
       display: inline-block;
-      animation: scrollText 12s linear infinite;
+      animation: scrollText 10s linear infinite;
       padding-left: 100%;
     }
 
     @keyframes scrollText {
-      0%   { transform: translateX(0); }
+      0% { transform: translateX(0); }
       100% { transform: translateX(-100%); }
     }
 
     main {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem 1rem 4rem;
-      text-align: center;
       max-width: 1000px;
       margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+      text-align: center;
     }
 
     .logo {
@@ -67,28 +62,28 @@
 
     h1 {
       color: #facc15;
-      font-size: 1.6rem;
-      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
     }
 
     p {
-      font-size: 0.65rem;
+      font-size: 0.85rem;
       line-height: 1.6;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     .btn {
       background-color: #facc15;
       color: #000;
       padding: 1rem 1.5rem;
-      border-radius: 6px;
-      font-size: 0.6rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
       margin: 0.5rem;
-      display: inline-block;
       text-decoration: none;
       font-weight: bold;
-      transition: transform 0.2s ease;
       box-shadow: 0 0 10px #facc15;
+      display: inline-block;
+      transition: transform 0.2s ease;
     }
 
     .btn:hover {
@@ -96,28 +91,23 @@
     }
 
     .section {
-      margin-top: 2.5rem;
+      margin-top: 2rem;
       padding: 1.2rem;
-      width: 90%;
-      background: rgba(255,255,255,0.05);
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 10px;
-      box-shadow: 0 0 20px #facc15aa;
+      box-shadow: 0 0 15px #facc15aa;
     }
 
     .section h2 {
       color: #facc15;
-      font-size: 1rem;
+      font-size: 1.2rem;
       margin-bottom: 1rem;
-    }
-
-    .section p,
-    .section ul {
-      font-size: 0.55rem;
     }
 
     ul {
       list-style: none;
-      padding-left: 0;
+      padding: 0;
+      font-size: 0.8rem;
     }
 
     li::before {
@@ -125,7 +115,7 @@
     }
 
     .power {
-      font-size: 1rem;
+      font-size: 1.5rem;
       color: #22c55e;
       margin-top: 1rem;
     }
@@ -133,8 +123,8 @@
     .socials {
       margin-top: 2rem;
       display: flex;
-      gap: 20px;
       justify-content: center;
+      gap: 20px;
       flex-wrap: wrap;
     }
 
@@ -153,52 +143,50 @@
     }
 
     .partner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      text-decoration: none;
-      color: #facc15;
-      margin-top: 1rem;
-      font-size: 0.7rem;
-      transition: transform 0.2s ease;
+      margin: 3rem 0 1rem;
     }
 
-    .partner:hover {
-      transform: scale(1.05);
-    }
-
-    .partner-logo {
-      width: 32px;
-      height: 32px;
-      background: white;
-      border-radius: 8px;
-      padding: 4px;
+    .partner img {
+      width: 120px;
+      filter: drop-shadow(0 0 8px #facc15);
     }
 
     footer {
       text-align: center;
-      font-size: 0.5rem;
+      font-size: 0.7rem;
       color: #888;
-      padding: 1.5rem 1rem 2rem;
-      font-family: 'Press Start 2P', cursive;
+      padding: 2rem 1rem;
+    }
+
+    /* Caixa com scroll */
+    .story-box {
+      max-height: 200px;
+      overflow-y: auto;
+      padding: 1rem;
+      background: rgba(0,0,0,0.3);
+      border-radius: 10px;
+      border: 1px solid #facc15;
+      box-shadow: 0 0 10px #facc15aa;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      text-align: left;
     }
 
     @media (max-width: 480px) {
-      h1 { font-size: 1.2rem; }
-      p, .section ul, .section p { font-size: 0.48rem; }
-      .btn { font-size: 0.5rem; padding: 0.6rem 1rem; }
-      footer { font-size: 0.4rem; }
+      h1 { font-size: 1.5rem; }
+      .btn { font-size: 0.75rem; padding: 0.8rem 1.2rem; }
+      .section h2 { font-size: 1rem; }
     }
   </style>
 </head>
 <body>
+
   <div class="marquee-container">
     <div class="marquee-text">$KAME $KAME $KAME $KAME $KAME $KAME $KAME $KAME</div>
   </div>
 
   <main>
-    <img src="46f993fe3dec8401585634c34ef53510.jpg" alt="$KAMECOIN Logo" class="logo">
+    <img src="kamecoin-logo.png" alt="$KAMECOIN Logo" class="logo">
     <h1>$KAMECOIN</h1>
     <p>🔥 It's Over 9000!<br>Join the Dojo. Become a meme legend in the crypto universe.</p>
 
@@ -212,14 +200,23 @@
     </audio>
 
     <div class="section">
-      <h2>🔚 Contract Address</h2>
-      <p style="font-size: 0.5rem; word-break: break-all;" id="contract">0xF6DAde5E324ee01bE018f3C42b1c7e96dF944982</p>
-      <button onclick="copyContract()" class="btn">🗌 Copy Address</button>
+      <h2>📖 Why We Created $KAMECOIN</h2>
+      <div class="story-box">
+        <p>
+          We created $KAMECOIN not just as a meme — but as a tribute to the energy, imagination, and childhood nostalgia that Dragon Ball gave us.<br><br>
+          When we were young, we’d rush home after school, eyes wide, hearts pounding, waiting for Goku to charge up the next big Kamehameha. That feeling of limitless power, of overcoming the impossible — that's what we want to bring back.<br><br>
+          Now as adults in crypto, we channel that same energy into $KAME.<br><br>
+          This isn’t just a token.<br>
+          It’s a power level.<br>
+          A dojo for believers.<br>
+          A meme with meaning.<br><br>
+          Because once a Saiyan, always a Saiyan.
+        </p>
+      </div>
     </div>
 
     <div class="section">
       <h2>📊 Tokenomics</h2>
-      <p>KAME made 59 trillion tokens… but he's a greedy Super Saiyan and wants them ALL! 😈</p>
       <ul>
         <li>Total Supply: 59,000,000,000,000,000,000 $KAME</li>
         <li>100% Community Owned</li>
@@ -228,7 +225,7 @@
     </div>
 
     <div class="section">
-      <h2>📺 Roadmap</h2>
+      <h2>🗺️ Roadmap</h2>
       <ul>
         <li>✅ Launch $KAMECOIN</li>
         <li>✅ Build Community on Telegram + Twitter</li>
@@ -252,11 +249,10 @@
       </a>
     </div>
 
-    <div class="section">
-      <h2>🤝 Partnered with</h2>
-      <a href="https://dx.app" target="_blank" class="partner">
-        <img src="https://dx.app/images/logo.svg" alt="DxSale Logo" class="partner-logo">
-        <span>DxSale</span>
+    <div class="partner">
+      <p>Partnered with:</p>
+      <a href="https://dxsale.app" target="_blank">
+        <img src="https://dx.app/static/media/logo.9034e10d.svg" alt="DxSale">
       </a>
     </div>
   </main>
@@ -275,13 +271,6 @@
 
     function playSound() {
       document.getElementById('dbzSound').play();
-    }
-
-    function copyContract() {
-      const contract = document.getElementById('contract').innerText;
-      navigator.clipboard.writeText(contract).then(() => {
-        alert('✅ Contract copied!');
-      });
     }
   </script>
 </body>
