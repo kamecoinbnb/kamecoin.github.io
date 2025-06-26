@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>$KAMECOIN – It's Over 9000!</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
@@ -12,99 +12,111 @@
       box-sizing: border-box;
     }
 
-    html, body {
+    body, html {
       height: 100%;
       font-family: 'Press Start 2P', cursive;
-      background: linear-gradient(145deg, #090a0f, #1e2029);
-      color: #fff;
+      background-color: #000;
+      color: white;
       overflow-x: hidden;
-      background-image: url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
     }
 
     .marquee-container {
       width: 100%;
-      background: #ffb800;
-      padding: 0.6rem 0;
       overflow: hidden;
-      box-shadow: 0 0 12px #ffb800;
+      white-space: nowrap;
+      background: #facc15;
+      color: #000;
+      font-size: 0.65rem;
+      padding: 0.5rem 0;
+      box-shadow: 0 0 10px #facc15;
+      position: relative;
     }
 
     .marquee-text {
       display: inline-block;
-      white-space: nowrap;
-      animation: scroll 15s linear infinite;
-      color: #000;
-      font-size: 0.75rem;
+      animation: scrollText 12s linear infinite;
+      padding-left: 100%;
     }
 
-    @keyframes scroll {
-      from { transform: translateX(100%); }
-      to { transform: translateX(-100%); }
+    @keyframes scrollText {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
     }
 
     main {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem 4rem;
       text-align: center;
-      padding: 2rem 1rem;
       max-width: 1000px;
-      margin: auto;
+      margin: 0 auto;
     }
 
     .logo {
-      width: 150px;
-      border-radius: 15px;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 0 15px #ffb800;
+      width: 140px;
+      border-radius: 12px;
+      margin-bottom: 1rem;
     }
 
     h1 {
+      color: #facc15;
       font-size: 1.6rem;
-      color: #ffb800;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     p {
       font-size: 0.65rem;
-      margin-bottom: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
     }
 
     .btn {
-      background: #ffb800;
+      background-color: #facc15;
       color: #000;
       padding: 1rem 1.5rem;
+      border-radius: 6px;
       font-size: 0.6rem;
-      margin: 0.4rem;
-      text-decoration: none;
-      border-radius: 10px;
+      margin: 0.5rem;
       display: inline-block;
+      text-decoration: none;
       font-weight: bold;
-      transition: all 0.2s ease;
-      box-shadow: 0 0 10px #ffb800;
+      transition: transform 0.2s ease;
+      box-shadow: 0 0 10px #facc15;
     }
 
     .btn:hover {
-      transform: scale(1.08);
+      transform: scale(1.05);
     }
 
     .section {
-      margin-top: 2rem;
+      margin-top: 2.5rem;
       padding: 1.2rem;
-      background: rgba(255, 184, 0, 0.05);
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(255, 184, 0, 0.3);
+      width: 90%;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      box-shadow: 0 0 20px #facc15aa;
     }
 
     .section h2 {
-      color: #ffb800;
+      color: #facc15;
       font-size: 1rem;
       margin-bottom: 1rem;
     }
 
-    .section p, .section ul {
+    .section p,
+    .section ul {
       font-size: 0.55rem;
     }
 
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
     li::before {
-      content: "\1F525 ";
+      content: "🔥 ";
     }
 
     .power {
@@ -116,19 +128,19 @@
     .socials {
       margin-top: 2rem;
       display: flex;
-      justify-content: center;
       gap: 20px;
+      justify-content: center;
       flex-wrap: wrap;
     }
 
     .socials img {
-      width: 40px;
-      height: 40px;
-      background: #ffb800;
-      padding: 8px;
-      border-radius: 10px;
+      width: 36px;
+      height: 36px;
+      background: #facc15;
+      padding: 6px;
+      border-radius: 6px;
       transition: transform 0.2s ease;
-      filter: drop-shadow(0 0 6px #ffb800);
+      filter: drop-shadow(0 0 6px #facc15);
     }
 
     .socials img:hover {
@@ -138,20 +150,21 @@
     footer {
       text-align: center;
       font-size: 0.5rem;
-      color: #aaa;
-      padding: 2rem 1rem;
+      color: #888;
+      padding: 1.5rem 1rem 2rem;
     }
 
     @media (max-width: 480px) {
       h1 { font-size: 1.2rem; }
-      p, .section p, .section ul { font-size: 0.5rem; }
+      p, .section ul, .section p { font-size: 0.48rem; }
       .btn { font-size: 0.5rem; padding: 0.6rem 1rem; }
+      footer { font-size: 0.4rem; }
     }
   </style>
 </head>
 <body>
   <div class="marquee-container">
-    <div class="marquee-text">🔥 $KAMECOIN is powering up! Join the crypto dojo! 🔥</div>
+    <div class="marquee-text">$KAME $KAME $KAME $KAME $KAME $KAME $KAME $KAME</div>
   </div>
 
   <main>
@@ -170,13 +183,13 @@
 
     <div class="section">
       <h2>📜 Contract Address</h2>
-      <p id="contract">0xF6DAde5E324ee01bE018f3C42b1c7e96dF944982</p>
+      <p style="font-size: 0.5rem; word-break: break-all;" id="contract">0xF6DAde5E324ee01bE018f3C42b1c7e96dF944982</p>
       <button onclick="copyContract()" class="btn">📋 Copy Address</button>
     </div>
 
     <div class="section">
       <h2>📊 Tokenomics</h2>
-      <p>KAME minted 59 trillion tokens... but this greedy Super Saiyan wants them ALL! 😈</p>
+      <p>KAME made 59 trillion tokens… but he's a greedy Super Saiyan and wants them ALL! 😈</p>
       <ul>
         <li>Total Supply: 59,000,000,000,000,000,000 $KAME</li>
         <li>100% Community Owned</li>
@@ -188,7 +201,7 @@
       <h2>🗺️ Roadmap</h2>
       <ul>
         <li>✅ Launch $KAMECOIN</li>
-        <li>✅ Build Community on Telegram & Twitter</li>
+        <li>✅ Build Community on Telegram + Twitter</li>
         <li>🔜 Listing on DEXTools & CoinGecko</li>
         <li>🔜 Meme Contest & NFT Drop</li>
         <li>🔜 Goku Dojo Staking Game</li>
